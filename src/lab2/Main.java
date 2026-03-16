@@ -1,12 +1,8 @@
 package lab2;
 
 import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
-import java.util.Random;
+import java.util.*;
+
 public class Main {
     public static void main(String[] args){
         List<Integer>x=new ArrayList<>();
@@ -57,9 +53,8 @@ public class Main {
         }
         xPlusYLimitedByP.addAll(tempSet);
         System.out.println("xPlusLimitedByP="+xPlusYLimitedByP);
-//problema 2
-        //a
-        List<Student>studenti=new ArrayList<>();
+//tema de casa 2
+        Set<Student>studenti=new HashSet<>();
         studenti.add(new Student(101, "Ana", "Popa", "TI21/1"));
         studenti.add(new Student(120, "Alis", "Popa", "TI21/2"));
         studenti.add(new Student(112, "Maria", "Popa", "TI21/1"));
@@ -67,23 +62,13 @@ public class Main {
         for(Student s:studenti){
             System.out.println(s);
         }
-        //b
-        Student s1=new Student(120,"Alis","Popa","TI21/2");
-        boolean exista1 = existaStudent(studenti,s1);
-        System.out.println("Exista Alis Popa?"+exista1);
-        //c
-        Student s2=new Student(112,"Maria","Popa","TI21/1");
-        boolean exista2 = existaStudent(studenti,s2);
-        System.out.println("Exista Maria Popa?"+exista2);
 
-    }
-    //b si c
-    public static boolean existaStudent(List<Student> lista,Student student){
-        for(Student s:lista){
-            if(s.prenume.equals(student.prenume)&&s.nume.equals(student.nume)&&s.formatieDeStudiu.equals(student.formatieDeStudiu)){
-                return true;
-            }
-        }
-        return false;
+        Student s1=new Student(120,"Alis","Popa","TI21/2");
+        boolean exista1 = studenti.contains(s1);
+        System.out.println("Exista Alis Popa?"+exista1);
+
+        Student s2=new Student(112,"Maria","Popa","TI21/1");
+        boolean exista2 = studenti.contains(s2);
+        System.out.println("Exista Maria Popa?"+exista2);
     }
 }
