@@ -57,5 +57,33 @@ public class Main {
         }
         xPlusYLimitedByP.addAll(tempSet);
         System.out.println("xPlusLimitedByP="+xPlusYLimitedByP);
+//problema 2
+        //a
+        List<Student>studenti=new ArrayList<>();
+        studenti.add(new Student(101, "Ana", "Popa", "TI21/1"));
+        studenti.add(new Student(120, "Alis", "Popa", "TI21/2"));
+        studenti.add(new Student(112, "Maria", "Popa", "TI21/1"));
+        System.out.println("Lista studenti");
+        for(Student s:studenti){
+            System.out.println(s);
+        }
+        //b
+        Student s1=new Student(120,"Alis","Popa","TI21/2");
+        boolean exista1 = existaStudent(studenti,s1);
+        System.out.println("Exista Alis Popa?"+exista1);
+        //c
+        Student s2=new Student(112,"Maria","Popa","TI21/1");
+        boolean exista2 = existaStudent(studenti,s2);
+        System.out.println("Exista Maria Popa?"+exista2);
+
+    }
+    //b si c
+    public static boolean existaStudent(List<Student> lista,Student student){
+        for(Student s:lista){
+            if(s.prenume.equals(student.prenume)&&s.nume.equals(student.nume)&&s.formatieDeStudiu.equals(student.formatieDeStudiu)){
+                return true;
+            }
+        }
+        return false;
     }
 }
