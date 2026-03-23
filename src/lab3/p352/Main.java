@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args){
         try{
             Path inputPath=Paths.get("studenti_in.txt");
-            Path outputPath=Paths.get("studenti_out.txt");
+            Path outputPath=Paths.get("studenti_out_sorted.txt");
             List<String>linii=Files.readAllLines(inputPath);
             List<Student>studenti=new ArrayList<>();
             for(String linie:linii){
@@ -27,10 +27,14 @@ public class Main {
             }
             Collections.sort(studenti,new Comparator<Student>(){
                 public int compare(Student s1,Student s2){
-                    return s1.getnume().compareTo(s2.getnume());
+                    int compara=s1.getFormatieDeStudiu().compareTo(s2.getFormatieDeStudiu());
+                    if(compara==0) {
+                        return s1.getnume().compareTo(s2.getnume());
+                    }
+                    return compara;
                 }
             });
-            System.out.println("\n studenti sortati dupa nume");
+            System.out.println("\n studenti sortati dupa formatia de studiu");
             for(Student s:studenti){
                 System.out.println(s);
             }
