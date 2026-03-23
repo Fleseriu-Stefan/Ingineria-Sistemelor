@@ -11,6 +11,18 @@ public class Student {
         this.nume=nume;
         this.formatieDeStudiu=formatieDeStudiu;
     }
+    public int getId(){
+        return id;
+    }
+    public String getPrenume(){
+        return prenume;
+    }
+    public String getnume(){
+        return nume;
+    }
+    public String getFormatieDeStudiu(){
+        return formatieDeStudiu;
+    }
     public String toString(){
         return id+" "+prenume+" "+nume+" "+formatieDeStudiu;
     }
